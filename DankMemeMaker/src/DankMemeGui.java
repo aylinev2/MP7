@@ -93,9 +93,7 @@ public class DankMemeGui extends JFrame implements ActionListener{
 		gbc.gridx = 2;
 		
 		controlPanel.add(save, gbc);
-		
-		//controlPanel.setVisible(true);
-		
+				
 		add(controlPanel, BorderLayout.SOUTH);
 		add(memePanel, BorderLayout.CENTER);
 		
@@ -144,15 +142,12 @@ public class DankMemeGui extends JFrame implements ActionListener{
 	private void save() throws IOException {
 		
 		if(fileDialog.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
-			System.out.println(fileDialog.getSelectedFile().getName());
 			ImageIO.write(memedImage, "jpg", fileDialog.getSelectedFile());
 		}
 		
 	}
 
 	private void generate() {
-		
-		System.out.println(textBox.getText());
 		meme = new DankMeme(loadedImage, textBox.getText());
 		
 		memedImage = meme.getMeme();
